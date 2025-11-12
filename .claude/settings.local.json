@@ -5,7 +5,9 @@
       "Bash(pnpm run deploy)",
       "Bash(cat:*)",
       "Bash(npm run build:*)",
-      "Bash(npm run deploy:*)"
+      "Bash(npm run deploy:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
