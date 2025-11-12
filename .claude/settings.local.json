@@ -1,8 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "mcp__ide__getDiagnostics",
-      "Bash(npm install:*)"
+      "Bash(pnpm run build)",
+      "Bash(pnpm run deploy)"
     ],
     "deny": [],
     "ask": []

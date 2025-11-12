@@ -403,7 +403,7 @@ export default function Home() {
 
                 <div className="space-y-4">
                   <Link
-                    href="mailto:test@example.com"
+                    href="mailto:cc5387@columbia.edu"
                     className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
                   >
                     <span className="text-base sm:text-lg">cc5387@columbia.edu</span>
@@ -427,7 +427,6 @@ export default function Home() {
                 {[
                   { name: "GitHub", handle: "@cctofu", url: "https://github.com/cctofu" },
                   { name: "Leetcode", handle: "@cctofu", url: "https://leetcode.com/u/cctofu/" },
-                  { name: "HubSpot Community", handle: "@felixmacaspac", url: "#" },
                   { name: "LinkedIn", handle: "calvinchang216", url: "https://www.linkedin.com/in/calvinchang216/" },
                 ].map((social) => (
                   <Link

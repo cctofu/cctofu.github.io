@@ -1,49 +1,38 @@
-# Minimalist Portfolio Website
+# Calvin Chang - Portfolio
 
-A clean, modern portfolio website built with Next.js and Tailwind CSS, featuring smooth animations and dark/light theme support.
-
-## ✨ Features
-
-- **Minimalist Design** - Clean typography with Geist font and strategic use of whitespace
-- **Responsive Layout** - Mobile-first design that works on all devices
-- **Theme Toggle** - Seamless dark/light mode switching
-- **Smooth Animations** - Subtle scroll-triggered animations and hover effects
-- **Modern Stack** - Built with Next.js 15, TypeScript, and Tailwind CSS
+A clean, modern portfolio website showcasing my work as a Data and AI Engineer.
 
 ## 🚀 Built With
 
 - [Next.js](https://nextjs.org/) - React framework
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [v0.dev](https://v0.dev/) - AI-powered development
 
 ## 📦 Getting Started
 
 \`\`\`bash
 # Clone the repository
-git clone https://github.com/felixmacaspac/v0-minimalist-portfolio.git
+git clone https://github.com/cctofu/cctofu.github.io.git
 
 # Install dependencies
-npm install
+pnpm install
 
 # Run development server
-npm run dev
+pnpm run dev
 \`\`\`
 
 Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-## 🎨 Customization
+## 🌐 Deployment
 
-The portfolio is designed to be easily customizable:
+Deploy to GitHub Pages:
 
-- Update personal information in `app/page.tsx`
-- Modify colors and styling in `app/globals.css`
-- Add or remove sections as needed
+\`\`\`bash
+pnpm run deploy
+\`\`\`
 
-## 📄 License
-
-Open source and available under the [MIT License](LICENSE).
+Visit the live site at [https://cctofu.github.io](https://cctofu.github.io)
 
 ---
 
-**Built with ❤️ using [v0.dev](https://v0.dev) by Felix Macaspac**
+© 2025 Calvin Chang
