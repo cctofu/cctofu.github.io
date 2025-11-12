@@ -66,7 +66,7 @@ export default function Home() {
             <div className="lg:col-span-3 space-y-6 sm:space-y-8">
               <div className="space-y-3 sm:space-y-2">
                 <div className="text-sm text-muted-foreground font-mono tracking-wider">PORTFOLIO / 2025</div>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
                   Calvin
                   <br />
                   <span className="text-muted-foreground">Chang</span>
@@ -128,39 +128,31 @@ export default function Home() {
         >
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <h2 className="text-3xl sm:text-4xl font-light">Experiences</h2>
-              <div className="text-sm text-muted-foreground font-mono">2023 — 2025</div>
+              <h2 className="text-3xl sm:text-4xl font-bold">Experiences</h2>
             </div>
 
             <div className="space-y-8 sm:space-y-12">
               {[
                 {
-                  year: "2025",
+                  year: "Aug 2025 – Present",
                   role: "AI Software Engineer",
                   company: "Kearney PERLabs, Columbia University",
                   description: "Built AI simulation models and a Generative AI platform integrating RAG and behavioral clustering to enhance product-launch decision-making.",
-                  tech: ["Python", "FastAPI", "PyTorch", "RAG", "Causal Inference"]
+                  tech: ["Python", "RAG", "Causal Inference"]
                 },
                 {
-                  year: "2024",
+                  year: "July 2024 – Aug 2024",
                   role: "AI Software Engineering Intern",
                   company: "Tencent",
                   description: "Developed and optimized generative voice and dialogue models for Honor of Kings using GPT-4 pipelines, model compression, and distributed PyTorch.",
-                  tech: ["Python", "PyTorch", "CUDA", "GPT-4 API", "Model Compression"]
+                  tech: ["Python", "PyTorch", "Model Compression"]
                 },
                 {
-                  year: "2024",
+                  year: "Dec 2024 – July 2025",
                   role: "Undergraduate Researcher",
                   company: "Tsinghua University AI Laboratories",
                   description: "Designed instruction-generation and fine-tuning frameworks for law-domain LLMs, improving interpretability and training stability.",
                   tech: ["Python", "PyTorch", "Transformers", "Data Visualization", "LLM Fine-tuning"]
-                },
-                {
-                  year: "2023",
-                  role: "Team Lead",
-                  company: "Tsinghua University AI Laboratories",
-                  description: "Led a 3-member team developing a RAG-enhanced patent decision system linking claims with prior art using transformer-based embeddings.",
-                  tech: ["Python", "SentenceTransformers", "BERT", "RAG", "Data Engineering"]
                 },
               ].map((job, index) => (
                 <div
@@ -168,7 +160,7 @@ export default function Home() {
                   className="group grid lg:grid-cols-12 gap-4 sm:gap-8 py-6 sm:py-8 border-b border-border/50 hover:border-border transition-colors duration-500"
                 >
                   <div className="lg:col-span-2">
-                    <div className="text-xl sm:text-2xl font-light text-muted-foreground group-hover:text-foreground transition-colors duration-500">
+                    <div className="text-sm sm:text-base font-light text-muted-foreground group-hover:text-foreground transition-colors duration-500">
                       {job.year}
                     </div>
                   </div>
@@ -176,17 +168,14 @@ export default function Home() {
                   <div className="lg:col-span-6 space-y-3">
                     <div>
                       <h3 className="text-lg sm:text-xl font-medium">{job.role}</h3>
-                      <div className="text-muted-foreground">{job.company}</div>
+                      <div className="text-muted-foreground italic">{job.company}</div>
                     </div>
                     <p className="text-muted-foreground leading-relaxed max-w-lg">{job.description}</p>
                   </div>
 
-                  <div className="lg:col-span-4 flex flex-wrap gap-2 lg:justify-end mt-2 lg:mt-0">
+                  <div className="lg:col-span-4 flex flex-wrap gap-0 lg:justify-end mt-2 lg:mt-0">
                     {job.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 text-xs text-muted-foreground rounded group-hover:border-muted-foreground/50 transition-colors duration-500"
-                      >
+                      <span key={tech} className="px-2 py-1 text-xs text-muted-foreground rounded group-hover:border-muted-foreground/50 transition-colors duration-500">
                         {tech}
                       </span>
                     ))}
@@ -206,26 +195,24 @@ export default function Home() {
         >
           <div className="space-y-12 sm:space-y-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <h2 className="text-3xl sm:text-4xl font-light">Education</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold">Education</h2>
             </div>
 
             <div className="space-y-8 sm:space-y-12">
               {[
                 {
                   year: "2025 — Present",
-                  degree: "Master of Science in Computer Science",
+                  degree: "Master of Management Science and Engineering",
                   school: "Columbia University",
-                  location: "New York, NY",
                   description: "Specializing in AI and Machine Learning with focus on deep learning and natural language processing.",
-                  coursework: ["Deep Learning", "Natural Language Processing", "Advanced Machine Learning"],
+                  coursework: ["Optimization", "Simulation", "Probabilistic Models", "Machine Learning"],
                 },
                 {
                   year: "2021 — 2025",
-                  degree: "Bachelor of Engineering",
+                  degree: "Bachelor of Engineering in Computer Science",
                   school: "Tsinghua University",
-                  location: "Beijing, China",
                   description: "Completed comprehensive engineering curriculum with emphasis on AI research and practical applications.",
-                  coursework: ["Data Structures", "Algorithms", "AI Fundamentals", "Computer Vision"],
+                  coursework: ["Data Structures", "Algorithms", "Artificial Neural Networks", "Human–Computer Interaction", "Software Engineering"],
                 },
               ].map((edu, index) => (
                 <div
@@ -240,9 +227,8 @@ export default function Home() {
 
                   <div className="lg:col-span-9 space-y-3">
                     <div>
-                      <h3 className="text-lg sm:text-xl font-medium">{edu.degree}</h3>
-                      <div className="text-muted-foreground">{edu.school}</div>
-                      <div className="text-sm text-muted-foreground">{edu.location}</div>
+                      <h3 className="text-lg sm:text-xl font-medium">{edu.school}</h3>
+                      <div className="text-muted-foreground">{edu.degree}</div>
                     </div>
                     <p className="text-muted-foreground leading-relaxed">{edu.description}</p>
                     <div className="flex flex-wrap gap-2 mt-4">
@@ -270,45 +256,27 @@ export default function Home() {
           className="min-h-screen py-20 sm:py-32 opacity-0"
         >
           <div className="space-y-12 sm:space-y-16">
-            <h2 className="text-3xl sm:text-4xl font-light">Projects</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold">Projects</h2>
 
             <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
               {[
                 {
-                  title: "AI-Powered Patent Analysis System",
-                  excerpt: "RAG-enhanced system linking patent claims with prior art using transformer-based embeddings.",
-                  date: "2024",
-                  category: "AI/ML",
-                  details: "Led development of a sophisticated patent decision support system that leverages retrieval-augmented generation (RAG) and BERT embeddings to analyze patent claims and identify relevant prior art. The system uses SentenceTransformers for semantic similarity matching and includes a custom data engineering pipeline for processing large patent databases.",
-                  tech: ["Python", "RAG", "BERT", "SentenceTransformers", "Data Engineering"],
-                  impact: "Reduced patent analysis time by 60% and improved prior art discovery accuracy",
+                  title: "Automated Root Cause Analysis System for Marketing Metrics",
+                  excerpt: "Analytics pipeline isolating performance drivers across large-scale marketing campaigns.",
+                  date: "Apr 2024 – June 2024",
+                  category: "Data Science",
+                  details: "Developed during the Meta Mentorship Program. Built an end-to-end analytics pipeline integrating Python, SQL, and Tableau to identify key performance drivers across marketing campaigns through statistical testing, variance decomposition, and time-series analysis. Engineered model evaluation and hypothesis-testing modules to isolate causal effects of creative, audience, and timing variables on engagement and conversion performance. Automated data extraction and cleaning workflows, improving diagnostic throughput and reducing manual effort by 75%.",
+                  tech: ["Python", "SQL", "Tableau", "Time-Series Analysis", "Causal Inference"],
+                  impact: "Reduced manual effort by 75% and improved campaign diagnostic accuracy",
                 },
                 {
-                  title: "Generative Voice Model for Gaming",
-                  excerpt: "GPT-4 powered voice synthesis system with model compression for real-time performance.",
-                  date: "2024",
-                  category: "AI/ML",
-                  details: "Developed and optimized generative voice and dialogue models for Honor of Kings at Tencent. Implemented GPT-4 pipelines for voice synthesis, applied advanced model compression techniques, and utilized distributed PyTorch training across GPU clusters. Achieved significant performance improvements while maintaining high-quality voice output.",
-                  tech: ["Python", "PyTorch", "GPT-4 API", "CUDA", "Model Compression"],
-                  impact: "Deployed to production serving 100M+ daily active users",
-                },
-                {
-                  title: "Legal Domain LLM Fine-tuning Framework",
-                  excerpt: "Instruction-generation framework for fine-tuning large language models on legal texts.",
-                  date: "2024",
+                  title: "RAG-Enhanced Legal Decision Modeling for Patent Office Actions",
+                  excerpt: "AI system automating patent office action drafting and prior-art matching using domain-specific retrieval models.",
+                  date: "Sept 2023 – Jan 2025",
                   category: "Research",
-                  details: "Designed and implemented a comprehensive framework for generating high-quality instruction data from legal documents and fine-tuning LLMs for law-domain applications. Improved model interpretability through custom evaluation metrics and enhanced training stability using novel regularization techniques.",
-                  tech: ["Python", "PyTorch", "Transformers", "LLM Fine-tuning", "Data Visualization"],
-                  impact: "Published research findings and improved legal text understanding by 40%",
-                },
-                {
-                  title: "Generative AI Platform for Business Intelligence",
-                  excerpt: "RAG and behavioral clustering platform for product launch decision-making.",
-                  date: "2025",
-                  category: "AI/ML",
-                  details: "Built an end-to-end Generative AI platform integrating RAG, behavioral clustering, and causal inference models. The platform processes consumer behavior data, generates insights using LLMs, and provides predictive analytics for product launch decisions. Includes FastAPI backend with real-time inference capabilities.",
-                  tech: ["Python", "FastAPI", "PyTorch", "RAG", "Causal Inference"],
-                  impact: "Enhanced decision-making accuracy and reduced time-to-insight by 50%",
+                  details: "Mentored by professors at Tsinghua University AI Laboratories. Led a three-member research team to design a retrieval-augmented generation (RAG) based system for automating patent office action drafting and prior-art matching. Collected, standardized, and preprocessed 100,000+ multilingual patent records from USPTO and CNIPA sources, building robust text-cleaning, tokenization, and entity-extraction pipelines to ensure consistency. Developed domain-specific embeddings and semantic similarity models using transformer-based architectures (e.g., BERT, SentenceTransformers) to link patent claims with supporting evidence, improving retrieval precision by 20% over baseline. Designed a multi-stage retrieval–ranking–re-ranking framework that incorporated statistical weighting and cosine similarity thresholds, enhancing both result interpretability and legal transparency for expert review.",
+                  tech: ["Python", "RAG", "BERT", "SentenceTransformers", "Data Engineering", "Information Retrieval"],
+                  impact: "Improved retrieval precision by 20% and enhanced interpretability in legal AI workflows",
                 },
               ].map((project, index) => (
                 <article
@@ -394,7 +362,7 @@ export default function Home() {
         >
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
             <div className="space-y-6 sm:space-y-8">
-              <h2 className="text-3xl sm:text-4xl font-light">Let's Connect</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold">Contact me</h2>
 
               <div className="space-y-6">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
@@ -426,7 +394,6 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { name: "GitHub", handle: "@cctofu", url: "https://github.com/cctofu" },
-                  { name: "Leetcode", handle: "@cctofu", url: "https://leetcode.com/u/cctofu/" },
                   { name: "LinkedIn", handle: "calvinchang216", url: "https://www.linkedin.com/in/calvinchang216/" },
                 ].map((social) => (
                   <Link
