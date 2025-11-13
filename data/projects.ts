@@ -15,7 +15,7 @@ export const projects: Project[] = [
     id: "mirra-amazon-bedrock-hackathon",
     title: "MIRRA - Bedrock-powered RAG system",
     excerpt: "Built a Bedrock-powered RAG system that simulates real consumer behavior for AWS Bedrock x Columbia Engineering Hackathon.",
-    date: "November 2025",
+    date: "Nov 2025",
     category: "Hackathon",
     details: "Co-created MIRRA, an AI-powered consumer-simulation platform designed for pre-market product validation, presented at the AWS x Columbia Engineering Hackathon. Our system replaces slow, costly focus groups by using Amazon Bedrock + RAG to simulate realistic consumer behavior across demographic personas. Designed a full pipeline that ingests product descriptions, normalizes attributes, retrieves relevant persona clusters, and generates tailored synthetic feedback using LLM-PAG reasoning. Built an interactive dashboard that visualizes purchase likelihood, persona distribution, demographic breakdowns, and sentiment insights—transforming weeks-long research cycles into days. Demonstrated business impact through ~60% lower cost, ~80% faster testing cycles, and ROI-positive market testing compared to traditional focus-group workflows.",
     tech: ["AWS Bedrock", "Python", "RAG", "LLM", "Vector Retrieval", "React", "Semantic Matching", "Full-stack Development"],

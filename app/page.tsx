@@ -135,9 +135,9 @@ export default function Home() {
               {[
                 {
                   year: "Aug 2025 – Present",
-                  role: "AI Software Engineer",
+                  role: "Part-Time Consultant",
                   company: "Kearney PERLabs, Columbia University",
-                  description: "Built AI simulation models and a Generative AI platform integrating RAG and behavioral clustering to enhance product-launch decision-making.",
+                  description: "Worked with Kearney during Columbia University Operations Consulting course. Built AI simulation models and a Generative AI platform integrating RAG and behavioral clustering to enhance product-launch decision-making.",
                   tech: ["Python", "RAG", "Causal Inference"],
                   logo: "/kearney.png",
                 },
