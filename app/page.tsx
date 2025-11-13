@@ -138,21 +138,24 @@ export default function Home() {
                   role: "AI Software Engineer",
                   company: "Kearney PERLabs, Columbia University",
                   description: "Built AI simulation models and a Generative AI platform integrating RAG and behavioral clustering to enhance product-launch decision-making.",
-                  tech: ["Python", "RAG", "Causal Inference"]
+                  tech: ["Python", "RAG", "Causal Inference"],
+                  logo: "/kearney.png",
                 },
                 {
                   year: "July 2024 – Aug 2024",
                   role: "AI Software Engineering Intern",
                   company: "Tencent",
                   description: "Developed and optimized generative voice and dialogue models for Honor of Kings using GPT-4 pipelines, model compression, and distributed PyTorch.",
-                  tech: ["Python", "PyTorch", "Model Compression"]
+                  tech: ["Python", "PyTorch", "Model Compression"],
+                  logo: "/tencent.png",
                 },
                 {
                   year: "Dec 2024 – July 2025",
                   role: "Undergraduate Researcher",
                     company: "Tsinghua University AI Laboratories",
                     description: "Started as a student researcher contributing to projects related to NLP. Worked on Legal related Large Language Models (LLMs), focusing on instruction generation, model fine-tuning, and evaluation frameworks to enhance legal reasoning capabilities.",
-                  tech: ["Python", "PyTorch", "Transformers", "Legal LLMs", "Data Visualization", "LLM Fine-tuning"]
+                  tech: ["Python", "PyTorch", "Transformers", "Legal LLMs", "Data Visualization", "LLM Fine-tuning"],
+                  logo: "/tsinghua.png",
                 },
               ].map((job, index) => (
                 <div
@@ -165,20 +168,29 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="lg:col-span-6 space-y-3">
+                  <div className="lg:col-span-10 space-y-3 relative">
+                    {job.logo && (
+                      <img
+                        src={job.logo}
+                        alt={job.company}
+                        className="absolute top-0 right-0 w-14 h-14 object-contain pr-2"
+                      />
+                    )}
                     <div>
                       <h3 className="text-lg sm:text-xl font-medium">{job.role}</h3>
                       <div className="text-muted-foreground italic">{job.company}</div>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed max-w-lg">{job.description}</p>
-                  </div>
-
-                  <div className="lg:col-span-4 flex flex-wrap gap-0 lg:justify-end mt-2 lg:mt-0">
-                    {job.tech.map((tech) => (
-                      <span key={tech} className="px-2 py-1 text-xs text-muted-foreground rounded group-hover:border-muted-foreground/50 transition-colors duration-500">
-                        {tech}
-                      </span>
-                    ))}
+                    <p className="text-muted-foreground leading-relaxed">{job.description}</p>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {job.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -206,6 +218,7 @@ export default function Home() {
                   school: "Columbia University",
                   description: "Worked on Projects within consulting class, learning optimization, simulation, probabilistic models, and machine learning techniques applied to real-world business problems.",
                   coursework: ["Optimization", "Simulation", "Probabilistic Models", "Machine Learning"],
+                  logo: "/columbia.png",
                 },
                 {
                   year: "2021 — 2025",
@@ -213,6 +226,7 @@ export default function Home() {
                   school: "Tsinghua University",
                   description: "Part of Soccer Team, Tennis Team, Part of Students Coding Association, worked on projects to help build websites for school use. Got scholarship for 2 years for academic performance.",
                   coursework: ["Data Structures", "Algorithms", "Artificial Neural Networks", "Human–Computer Interaction", "Software Engineering"],
+                  logo: "/tsinghua.png",
                 },
               ].map((edu, index) => (
                 <div
@@ -225,7 +239,14 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="lg:col-span-9 space-y-3">
+                  <div className="lg:col-span-9 space-y-3 relative">
+                    {edu.logo && (
+                      <img
+                        src={edu.logo}
+                        alt={edu.school}
+                        className="absolute top-0 right-0 w-14 h-14 object-contain pr-2"
+                      />
+                    )}
                     <div>
                       <h3 className="text-lg sm:text-xl font-medium">{edu.school}</h3>
                       <div className="text-muted-foreground">{edu.degree}</div>
