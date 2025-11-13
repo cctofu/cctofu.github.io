@@ -2,11 +2,11 @@
 
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
+import { projects } from "@/data/projects"
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true)
   const [activeSection, setActiveSection] = useState("")
-  const [expandedProject, setExpandedProject] = useState<number | null>(null)
   const sectionsRef = useRef<(HTMLElement | null)[]>([])
 
   useEffect(() => {
@@ -75,17 +75,17 @@ export default function Home() {
 
               <div className="space-y-6 max-w-md">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Data and AI Engineer transforming
-                  <span className="text-foreground"> raw information</span> into
-                  <span className="text-foreground"> intelligent insights</span> through
-                  <span className="text-foreground"> analytics</span>,<span className="text-foreground"> machine learning</span>,
+                  Data and AI Engineer looking to explore ways to transform
+                  <span className="text-foreground"> information</span>, 
+                  <span className="text-foreground"> data</span> and
+                  <span className="text-foreground"> analytics</span>, through <span className="text-foreground"> machine learning</span>,
                   and
-                  <span className="text-foreground"> data-driven design</span>.
+                  <span className="text-foreground"> data analyst</span>.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    Available for work
+                    Exploring Opportunities
                   </div>
                   <div>New York, NY</div>
                 </div>
@@ -150,9 +150,9 @@ export default function Home() {
                 {
                   year: "Dec 2024 – July 2025",
                   role: "Undergraduate Researcher",
-                  company: "Tsinghua University AI Laboratories",
-                  description: "Designed instruction-generation and fine-tuning frameworks for law-domain LLMs, improving interpretability and training stability.",
-                  tech: ["Python", "PyTorch", "Transformers", "Data Visualization", "LLM Fine-tuning"]
+                    company: "Tsinghua University AI Laboratories",
+                    description: "Started as a student researcher contributing to projects related to NLP. Worked on Legal related Large Language Models (LLMs), focusing on instruction generation, model fine-tuning, and evaluation frameworks to enhance legal reasoning capabilities.",
+                  tech: ["Python", "PyTorch", "Transformers", "Legal LLMs", "Data Visualization", "LLM Fine-tuning"]
                 },
               ].map((job, index) => (
                 <div
@@ -204,14 +204,14 @@ export default function Home() {
                   year: "2025 — Present",
                   degree: "Master of Management Science and Engineering",
                   school: "Columbia University",
-                  description: "Specializing in AI and Machine Learning with focus on deep learning and natural language processing.",
+                  description: "Worked on Projects within consulting class, learning optimization, simulation, probabilistic models, and machine learning techniques applied to real-world business problems.",
                   coursework: ["Optimization", "Simulation", "Probabilistic Models", "Machine Learning"],
                 },
                 {
                   year: "2021 — 2025",
                   degree: "Bachelor of Engineering in Computer Science",
                   school: "Tsinghua University",
-                  description: "Completed comprehensive engineering curriculum with emphasis on AI research and practical applications.",
+                  description: "Part of Soccer Team, Tennis Team, Part of Students Coding Association, worked on projects to help build websites for school use. Got scholarship for 2 years for academic performance.",
                   coursework: ["Data Structures", "Algorithms", "Artificial Neural Networks", "Human–Computer Interaction", "Software Engineering"],
                 },
               ].map((edu, index) => (
@@ -259,34 +259,25 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold">Projects</h2>
 
             <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
-              {[
-                {
-                  title: "Automated Root Cause Analysis System for Marketing Metrics",
-                  excerpt: "Analytics pipeline isolating performance drivers across large-scale marketing campaigns.",
-                  date: "Apr 2024 – June 2024",
-                  category: "Data Science",
-                  details: "Developed during the Meta Mentorship Program. Built an end-to-end analytics pipeline integrating Python, SQL, and Tableau to identify key performance drivers across marketing campaigns through statistical testing, variance decomposition, and time-series analysis. Engineered model evaluation and hypothesis-testing modules to isolate causal effects of creative, audience, and timing variables on engagement and conversion performance. Automated data extraction and cleaning workflows, improving diagnostic throughput and reducing manual effort by 75%.",
-                  tech: ["Python", "SQL", "Tableau", "Time-Series Analysis", "Causal Inference"],
-                  impact: "Reduced manual effort by 75% and improved campaign diagnostic accuracy",
-                },
-                {
-                  title: "RAG-Enhanced Legal Decision Modeling for Patent Office Actions",
-                  excerpt: "AI system automating patent office action drafting and prior-art matching using domain-specific retrieval models.",
-                  date: "Sept 2023 – Jan 2025",
-                  category: "Research",
-                  details: "Mentored by professors at Tsinghua University AI Laboratories. Led a three-member research team to design a retrieval-augmented generation (RAG) based system for automating patent office action drafting and prior-art matching. Collected, standardized, and preprocessed 100,000+ multilingual patent records from USPTO and CNIPA sources, building robust text-cleaning, tokenization, and entity-extraction pipelines to ensure consistency. Developed domain-specific embeddings and semantic similarity models using transformer-based architectures (e.g., BERT, SentenceTransformers) to link patent claims with supporting evidence, improving retrieval precision by 20% over baseline. Designed a multi-stage retrieval–ranking–re-ranking framework that incorporated statistical weighting and cosine similarity thresholds, enhancing both result interpretability and legal transparency for expert review.",
-                  tech: ["Python", "RAG", "BERT", "SentenceTransformers", "Data Engineering", "Information Retrieval"],
-                  impact: "Improved retrieval precision by 20% and enhanced interpretability in legal AI workflows",
-                },
-              ].map((project, index) => (
+              {projects.map((project, index) => (
                 <article
                   key={index}
                   className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg"
                 >
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                      <span>{project.category}</span>
-                      <span>{project.date}</span>
+                    <div className="flex items-center justify-between text-xs font-mono">
+                      <span className={
+                        project.category === "Hackathon"
+                          ? "text-[#ff595a]"
+                          : project.category === "Data Science"
+                          ? "text-[#4bbeb5]"
+                          : project.category === "Research"
+                          ? "text-[#f8ce59]"
+                          : "text-muted-foreground"
+                      }>
+                        {project.category}
+                      </span>
+                      <span className="text-muted-foreground">{project.date}</span>
                     </div>
 
                     <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
@@ -295,57 +286,25 @@ export default function Home() {
 
                     <p className="text-muted-foreground leading-relaxed">{project.excerpt}</p>
 
-                    {expandedProject === index && (
-                      <div className="pt-4 border-t border-border/50 space-y-4 animate-fade-in-up">
-                        <p className="text-sm text-muted-foreground leading-relaxed">{project.details}</p>
-
-                        <div className="flex flex-wrap gap-2">
-                          {project.tech.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-2 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-
-                        <div className="text-xs text-foreground font-medium pt-2">
-                          {project.impact}
-                        </div>
-                      </div>
-                    )}
-
-                    <button
-                      onClick={() => setExpandedProject(expandedProject === index ? null : index)}
+                    <Link
+                      href={`/projects/${project.id}`}
                       className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
                     >
-                      <span>{expandedProject === index ? "Show less" : "Read more"}</span>
+                      <span>Read more</span>
                       <svg
-                        className={`w-4 h-4 transform transition-transform duration-300 ${
-                          expandedProject === index ? "rotate-180" : "group-hover:translate-x-1"
-                        }`}
+                        className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
-                        {expandedProject === index ? (
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 15l7-7 7 7"
-                          />
-                        ) : (
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        )}
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
                       </svg>
-                    </button>
+                    </Link>
                   </div>
                 </article>
               ))}
