@@ -75,12 +75,12 @@ export default function Home() {
 
               <div className="space-y-6 max-w-md">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Data and AI Engineer looking to explore ways to transform
-                  <span className="text-foreground"> information</span>, 
-                  <span className="text-foreground"> data</span> and
-                  <span className="text-foreground"> analytics</span>, through <span className="text-foreground"> machine learning</span>,
-                  and
-                  <span className="text-foreground"> data analyst</span>.
+                  Data and AI Engineer interested in ways to transform
+                  <span className="text-foreground"> Information</span>, 
+                  <span className="text-foreground"> Data</span> and
+                  <span className="text-foreground"> Metrics</span>, into <span className="text-foreground"> Analytics</span>,
+                  through
+                  <span className="text-foreground"> Machine Learning</span>.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
@@ -294,6 +294,8 @@ export default function Home() {
                           ? "text-[#4bbeb5]"
                           : project.category === "Research"
                           ? "text-[#f8ce59]"
+                          : project.category === "Kaggle"
+                          ? "text-[#2499cd]"
                           : "text-muted-foreground"
                       }>
                         {project.category}
@@ -346,7 +348,7 @@ export default function Home() {
 
               <div className="space-y-6">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Always interested in new opportunities, collaborations, and conversations about the latest technologies
+                  Always interested in new opportunities, collaborations, and new discussion
                 </p>
 
                 <div className="space-y-4">
@@ -374,7 +376,9 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
                   { name: "GitHub", handle: "@cctofu", url: "https://github.com/cctofu" },
-                  { name: "LinkedIn", handle: "calvinchang216", url: "https://www.linkedin.com/in/calvinchang216/" },
+                  { name: "LinkedIn", handle: "@calvinchang216", url: "https://www.linkedin.com/in/calvinchang216/" },
+                  { name: "Kaggle", handle: "@cctofu", url: "https://www.kaggle.com/cctofu"},
+                  { name: "Leetcode", handle: "@cctofu", url: "https://leetcode.com/u/cctofu/"}
                 ].map((social) => (
                   <Link
                     key={social.name}
