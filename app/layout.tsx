@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "Calvin Chang Portfolio",
   description: "AI Software Engineer",
   generator: "v0.app",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
 }
 
 export default function RootLayout({

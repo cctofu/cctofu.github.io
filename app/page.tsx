@@ -75,12 +75,12 @@ export default function Home() {
 
               <div className="space-y-6 max-w-md">
                 <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Data and AI Engineer interested in ways to transform
-                  <span className="text-foreground"> Information</span>, 
-                  <span className="text-foreground"> Data</span> and
-                  <span className="text-foreground"> Metrics</span>, into <span className="text-foreground"> Analytics</span>,
-                  through
-                  <span className="text-foreground"> Machine Learning</span>.
+                  Data and AI Engineer turning
+                  <span className="text-foreground"> information </span> and
+                  <span className="text-foreground"> metrics </span> into
+                  <span className="text-foreground"> actionable analytics</span>, with <span className="text-foreground"> machine learning</span>,
+                  especially in
+                  <span className="text-foreground"> data analytics and game development</span>.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
