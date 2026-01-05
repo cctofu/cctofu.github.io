@@ -7,7 +7,9 @@
       "Bash(npm run build:*)",
       "Bash(npm run deploy:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(npm run dev:*)"
     ],
     "deny": [],
     "ask": []
