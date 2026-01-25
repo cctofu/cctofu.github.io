@@ -1,4 +1,4 @@
-name: Deploy Next.js site to Pages
+name: Deploy Vite React site to Pages
 
 on:
   push:
@@ -26,22 +26,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
 
-      - name: Build with Next.js
-        run: pnpm run build
+      - name: Build
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./dist
 
   deploy:
     environment:
