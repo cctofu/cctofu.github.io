@@ -5,17 +5,13 @@
     <link rel="icon" type="image/png" href="/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calvin Chang</title>
+    <script>
+      // Redirect to index.html while preserving the path
+      sessionStorage.setItem('redirect', location.pathname);
+      location.replace('/');
+    </script>
   </head>
   <body>
-    <script>
-      // Handle SPA redirect from 404.html
-      const redirect = sessionStorage.getItem('redirect');
-      if (redirect) {
-        sessionStorage.removeItem('redirect');
-        history.replaceState(null, '', redirect);
-      }
-    </script>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

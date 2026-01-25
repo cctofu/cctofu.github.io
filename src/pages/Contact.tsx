@@ -15,7 +15,7 @@ function Contact() {
           </div>
         </div>
         <div className="photo-strip">
-          <img src="/public/contact.png" alt="Photo strip" />
+          <img src="/contact.png" alt="Photo strip" />
         </div>
       </div>
     </div>

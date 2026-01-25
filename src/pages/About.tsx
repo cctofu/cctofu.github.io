@@ -10,7 +10,7 @@ function About() {
         I enjoy building small projects that help me learn more about new software and technologies out there. Lately, I’ve been especially interested in exploring how AI can be used within the gaming industry.
       </p>
       <div className="about-image">
-        <img src="/public/about.png" alt="About" />
+        <img src="/about.png" alt="About" />
       </div>
     </div>
   )
