@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "photos": "node scripts/build-photo-manifest.mjs",
+    "prebuild": "npm run photos",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

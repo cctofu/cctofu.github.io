@@ -2,32 +2,73 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding: 2rem;
-  z-index: 100;
+  right: 0;
+  padding: var(--gutter);
+  z-index: 200;
+  transition: background-color 0.25s ease, backdrop-filter 0.25s ease;
+}
+
+/* Soft cream veil once scrolled — keeps the nav legible over photos
+   without dropping a hard bar across the layout. */
+.navbar.is-scrolled {
+  background-color: var(--paper-veil);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .navbar-links {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .navbar-links a {
-  font-family: 'Courier Prime', monospace;
-  color: #1a1a1a;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-family: var(--font-body);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
   transition: opacity 0.2s ease;
 }
 
 .navbar-links a:hover {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
+/* Brackets sit quiet until the link is active or hovered. */
+.navbar-links .bracket {
+  color: var(--ink-soft);
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover .bracket,
+.navbar-links a.active .bracket {
+  color: var(--ink);
+}
+
+/* Current page. Courier Prime's bold is a real weight file, not synthesised,
+   so this reads clearly without needing a colour change. */
 .navbar-links a.active {
   font-weight: 700;
+}
+
+/* No width reservation needed here: Courier Prime is monospace, so bold and
+   regular share advance widths and the row never shifts on navigation. */
+
+/* Measured against real Courier Prime metrics: the four links plus gaps need
+   more than the 335px available inside the gutters on a 375px phone. Dropping
+   to 0.78rem with 0.85rem gaps lands at ~302px and keeps them on one line. */
+@media (max-width: 520px) {
+  .navbar-links {
+    gap: 0.85rem;
+  }
+
+  .navbar-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+  }
 }

@@ -3,12 +3,8 @@
 # dependencies
 /node_modules
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
+# build output
+/dist
 
 # debug
 npm-debug.log*
@@ -24,4 +20,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+.claude
+
+# macOS
+.DS_Store

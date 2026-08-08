@@ -4,11 +4,17 @@
   padding: 0;
 }
 
+/* Plain block shell. Centring is each page's own business now — the
+   old flex-centred container fought every fixed-position layout and
+   made scrolling impossible on Photos.
+
+   Deliberately transparent: body carries the paper texture, and painting
+   cream here too would hide it. */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  position: relative;
   width: 100%;
-  background-color: #f2eddc;
+  /* dvh so it matches .page--fixed exactly and leaves nothing to scroll.
+     vh first as the fallback for browsers without dynamic units. */
+  min-height: 100vh;
+  min-height: 100dvh;
 }

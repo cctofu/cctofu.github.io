@@ -1,0 +1,69 @@
+/* ---------------------------------------------------------------
+   Edge furniture — fixed, decorative, never interactive.
+   --------------------------------------------------------------- */
+
+.edge-text,
+.page-label {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  z-index: 50;
+}
+
+/* Rotated type down the right margin. */
+.edge-text {
+  right: var(--gutter);
+  top: 50%;
+  font-family: var(--font-body);
+  font-size: var(--step-micro);
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.edge-text--down {
+  transform: translate(50%, -50%) rotate(90deg);
+}
+
+.edge-text--up {
+  transform: translate(50%, -50%) rotate(-90deg);
+}
+
+/* Two-line label pinned top right, opposite the nav. */
+.page-label {
+  top: var(--gutter);
+  right: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  font-family: var(--font-display);
+  font-size: var(--step-micro);
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.page-label__primary {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.page-label__secondary {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+/* No spare margin on small screens — drop the frame entirely. */
+@media (max-width: 900px) {
+  .edge-text {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-label {
+    display: none;
+  }
+}

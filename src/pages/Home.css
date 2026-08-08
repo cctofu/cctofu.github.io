@@ -1,8 +1,67 @@
 .home {
+  display: block;
+}
+
+/* ---------------------------------------------------------------
+   Caption beneath the stamp.
+
+   Positioned off the same 50% axis the stamp is centred on, then
+   pushed down by half the stamp height plus a gap. The stamp itself
+   stays dead centre so it lines up with the Contact page cutout.
+   --------------------------------------------------------------- */
+
+.home__caption {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: calc(50% + var(--stamp-h) / 2 + clamp(0.9rem, 2.4vh, 1.75rem));
+  transform: translateX(-50%);
+  width: min(92vw, 46rem);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.home__name {
+  font-family: var(--font-display);
+  /* Smaller than the old display step: the stamp owns the centre now, and
+     the name has to fit between its bottom edge and the corner copy. */
+  font-size: clamp(1.4rem, 3.6vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: var(--track-display);
+  line-height: 1;
+  color: var(--ink);
+  white-space: nowrap;
+  /* Letter-spacing adds a trailing gap after the final glyph, which makes a
+     centred word sit half that gap left of true centre. Cancelling it on the
+     right margin puts the letterforms back on the axis. */
+  margin-right: calc(var(--track-display) * -1);
+}
+
+.home__role {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--step-micro);
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Short viewports: keep the caption tight under the stamp. */
+@media (max-height: 860px) {
+  .home__caption {
+    gap: 0.35rem;
+  }
+
+  .home__name {
+    font-size: clamp(1.25rem, 2.8vw, 2rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .home__name {
+    font-size: clamp(1.2rem, 6.5vw, 2rem);
+  }
 }

@@ -1,22 +1,36 @@
+import Stamp from '../components/Stamp'
+import { PageLabel } from '../components/Furniture'
 import './Contact.css'
+
+const LINKS = [
+  { label: 'Linkedin', handle: '@calvinchang216', href: 'https://linkedin.com/in/calvinchang216' },
+  { label: 'Github', handle: '@cctofu', href: 'https://github.com/cctofu' },
+]
 
 function Contact() {
   return (
-    <div className="contact">
-      <div className="contact-content">
-        <div className="contact-links">
-          <div className="contact-item">
-            <h2>Linkedin</h2>
-            <a href="https://linkedin.com/in/calvinchang216" target="_blank" rel="noopener noreferrer">@calvinchang216</a>
-          </div>
-          <div className="contact-item">
-            <h2>Github</h2>
-            <a href="https://github.com/cctofu" target="_blank" rel="noopener noreferrer">@cctofu</a>
-          </div>
-        </div>
-        <div className="photo-strip">
-          <img src="/contact.png" alt="Photo strip" />
-        </div>
+    <div className="page--fixed contact">
+      <div className="contact__backdrop" />
+
+      <PageLabel primary="Contact" secondary="Lemme know" />
+
+      <div className="stamp-anchor">
+        <Stamp className="contact__stamp">
+          <h1 className="contact__title">MY LINKS</h1>
+
+          <ul className="contact__links">
+            {LINKS.map(({ label, handle, href }) => (
+              <li key={label} className="contact__item">
+                <span className="contact__label">{label}</span>
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <span className="bracket">[</span>
+                  {handle}
+                  <span className="bracket">]</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Stamp>
       </div>
     </div>
   )

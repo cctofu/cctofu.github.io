@@ -1,0 +1,128 @@
+/* ---------------------------------------------------------------
+   Postage stamp
+   ---------------------------------------------------------------
+
+   The perforated outline is an SVG clipPath — see stampPath.ts for the
+   geometry and the reasoning. Nothing here needs to know about the
+   perforations except how much room to leave inside them.
+   --------------------------------------------------------------- */
+
+/* Centring anchor. Both Home and Contact wrap their stamp in this, so the
+   cutout occupies identical coordinates on each and appears to stay pinned
+   while the page behind it changes. */
+.stamp-anchor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* The clipPath carrier. Takes no space and paints nothing. */
+.stamp__defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.stamp {
+  /* --stamp-w and --stamp-h come from :root — see index.css. */
+  --perf-pitch: calc(var(--stamp-w) / 12);
+
+  position: relative;
+  width: var(--stamp-w);
+  height: var(--stamp-h);
+  /* Keeps content clear of the bitten edge. */
+  padding: calc(var(--perf-pitch) / 2);
+  background-color: var(--paper);
+  background-repeat: no-repeat;
+  /* clip-path is applied inline by the component, which owns the unique id. */
+}
+
+/* Photo fills the whole box including the padding, so the perforations are
+   punched out of the image itself rather than out of a cream margin. */
+.stamp--photo {
+  background-image: var(--stamp-image);
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---------------------------------------------------------------
+   Window variant
+   ---------------------------------------------------------------
+
+   Rather than squeezing the photograph into the stamp, the image is
+   scaled to cover the whole viewport and the stamp reveals only the
+   slice behind it — a hole cut in a sheet of paper laid over a print.
+
+   background-attachment: fixed would be the obvious tool and is the
+   wrong one here: .stamp-anchor is transformed, and a transformed
+   ancestor makes a fixed background resolve against that ancestor
+   instead of the viewport. So the geometry is computed instead.
+
+     size  = cover the viewport, from the image's own aspect ratio
+     x     = 'center', which already equals (stampW - imageW) / 2
+     y     = stampH/2 - 50vh, putting the image's top edge at the top
+             of the viewport to match the Contact backdrop's
+             'center top' anchoring
+
+   background-origin is border-box so these offsets measure from the
+   stamp's outer edge, perforations included.
+   --------------------------------------------------------------- */
+
+.stamp--window {
+  /* Aspect ratio of the image in --stamp-image (width / height).
+     home.webp is 2000×1333. Update this if you swap the photograph. */
+  --stamp-image-ar: 1.5004;
+
+  background-image: var(--stamp-image);
+  background-origin: border-box;
+  background-clip: border-box;
+
+  background-size: max(100vw, calc(100vh * var(--stamp-image-ar))) auto;
+  background-position: center calc(var(--stamp-h) / 2 - 50vh);
+
+  /* Dynamic viewport units where supported: .page--fixed is 100dvh, so the
+     stamp centres on 50dvh and the maths has to agree. Older browsers keep
+     the vh declarations above. */
+  background-size: max(100vw, calc(100dvh * var(--stamp-image-ar))) auto;
+  background-position: center calc(var(--stamp-h) / 2 - 50dvh);
+}
+
+/* Its own sheet of paper, so the grain starts at the stamp's own origin
+   rather than continuing the page behind it. */
+.stamp--blank {
+  background-color: var(--paper);
+  background-image: var(--paper-texture);
+  background-repeat: repeat;
+}
+
+.stamp__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: clamp(0.75rem, 1.6vw, 1.25rem);
+  text-align: center;
+}
+
+/* Responsive sizing is set on :root so both pages stay in lockstep.
+
+   860px rather than 760px: at 1280×800 — a very common laptop — the full-size
+   stamp pushed the Home caption into the bottom-left copy by 17px. */
+@media (max-height: 860px) {
+  :root {
+    --stamp-w: clamp(10rem, 18vw, 13.5rem);
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --stamp-w: min(60vw, 13rem);
+  }
+}

@@ -1,48 +1,110 @@
-.about {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+/* Half paper, half photograph, split down the middle of the viewport.
+
+   The two text blocks used to be pinned independently at top:8rem and
+   top:14rem, which collided the moment either one changed length.
+   They now share a single flow container. */
+
+.about__copy {
+  position: absolute;
+  z-index: 10;
+  left: var(--gutter);
+  top: 50%;
+  transform: translateY(-50%);
+  /* Confined to the paper half: the 50% column less a gutter each side, so
+     no line ever runs under the photograph. */
+  max-width: calc(50% - var(--gutter) * 2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.about-text {
-  position: fixed;
-  top: 8rem;
-  left: 2rem;
-  max-width: 50%;
-  font-family: 'Courier Prime', monospace;
-  font-size: 1.1rem;
-  color: #1a1a1a;
-  line-height: 1.6;
+.about__lede,
+.about__body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  line-height: 1.9;
+  color: var(--ink);
 }
 
-.about-text .highlight {
-  color: #1a1a1a;
+.about__body {
+  color: var(--ink-soft);
+}
+
+/* No accent colour to lean on, so the highlights are marked with a rule
+   rather than a hue. */
+.about__lede .highlight {
   font-weight: 700;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink-hair);
+  padding-bottom: 1px;
 }
 
-.about-body {
-  position: fixed;
-  top: 14rem;
-  left: 2rem;
-  max-width: 50%;
-  font-family: 'Courier Prime', monospace;
-  font-size: 1.1rem;
-  color: #1a1a1a;
-  line-height: 1.6;
-}
-
-.about-image {
-  position: fixed;
+/* Exactly half the viewport, full bleed, hard edges, no rounding. */
+.about__image {
+  position: absolute;
   right: 0;
   top: 0;
-  width: 40%;
-  height: 100vh;
+  width: 50%;
+  height: 100%;
   overflow: hidden;
 }
 
-.about-image img {
+.about__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* The source is 2:3 portrait and the half-screen box is wider than that,
+     so cover crops top and bottom. Favouring the upper part keeps the treeline
+     and horizon rather than filling the frame with lawn. */
+  object-position: center 35%;
+}
+
+/* The page label is pinned top-right, which now lands on the photograph
+   rather than on paper. Ink measures 2.3:1 against that sky; cream measures
+   6.3:1. The shadow is insurance for viewport aspects that crop the frame
+   differently. */
+.about .page-label__primary {
+  color: var(--paper);
+}
+
+.about .page-label__secondary {
+  color: rgba(242, 237, 220, 0.7);
+}
+
+.about .page-label {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Below this the 50% column gets too narrow for comfortable measure, so the
+   photograph gives up ground rather than the text becoming a ladder. */
+@media (max-width: 900px) {
+  .about__copy {
+    max-width: calc(62% - var(--gutter) * 2);
+  }
+
+  .about__image {
+    width: 38%;
+  }
+}
+
+@media (max-width: 600px) {
+  .about__copy {
+    max-width: none;
+    right: var(--gutter);
+    top: 5.5rem;
+    bottom: auto;
+    transform: none;
+  }
+
+  /* Stacked, with the photo at the BOTTOM. Putting it on top would slide the
+     dark sky under the fixed navbar, where ink measures 3.4:1. Anchored down
+     here, the nav stays on paper. 42% rather than half so the copy still has
+     room above it at 375x667. */
+  .about__image {
+    width: 100%;
+    height: 42%;
+    top: auto;
+    bottom: 0;
+  }
 }

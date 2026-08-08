@@ -1,0 +1,91 @@
+.photos {
+  padding: 0 var(--gutter) calc(var(--gutter) * 3);
+}
+
+/* ---------------------------------------------------------------
+   Header — display word against micro body text, the reference's
+   core move.
+   --------------------------------------------------------------- */
+
+.photos__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: clamp(7rem, 18vh, 12rem);
+  padding-bottom: clamp(3rem, 8vh, 6rem);
+  max-width: 68rem;
+}
+
+.photos__intro {
+  margin: 0;
+  max-width: 30rem;
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------
+   Masonry via CSS columns. Fills column-by-column rather than
+   left-to-right; for a photo wall that ordering is invisible.
+   --------------------------------------------------------------- */
+
+.photos__grid {
+  columns: 3;
+  column-gap: 0.85rem;
+}
+
+.photos__item {
+  display: block;
+  width: 100%;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  break-inside: avoid;
+  /* Cream placeholder so the reserved space isn't a white hole. */
+  background-color: rgba(26, 26, 26, 0.04);
+  overflow: hidden;
+}
+
+.photos__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* No radius, no shadow, no border — hard edges against the cream field. */
+  transition: opacity 0.25s ease, transform 0.4s ease;
+}
+
+.photos__item:hover img {
+  opacity: 0.82;
+  transform: scale(1.012);
+}
+
+.photos__empty {
+  max-width: 34rem;
+  padding: 3rem 0 6rem;
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.photos__empty code {
+  font-family: var(--font-body);
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink-hair);
+}
+
+@media (max-width: 1000px) {
+  .photos__grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .photos__grid {
+    columns: 1;
+  }
+
+  .photos__header {
+    padding-top: 8rem;
+  }
+}

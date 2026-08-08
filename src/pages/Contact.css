@@ -1,62 +1,79 @@
 .contact {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+  display: block;
 }
 
-.contact-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  margin-top: 15vh;
+/* ---------------------------------------------------------------
+   Full-bleed photograph.
+
+   Anchored to the top rather than centred: the top tenth of this
+   image is pale haze, which is what keeps the ink navbar legible
+   (measured at ~14:1 contrast, against 2.7:1 over the mid-frame
+   ocean). Centring it would crop that band away on wide viewports.
+   --------------------------------------------------------------- */
+
+.contact__backdrop {
+  position: absolute;
+  inset: 0;
+  background-image: url('/home.webp');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
-.contact-links {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-  margin-bottom: 2rem;
-}
+/* No size override here on purpose. The stamp takes --stamp-w from :root so
+   it matches Home exactly; the text inside is sized to fit that box instead. */
 
-.contact-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contact-item h2 {
-  font-family: 'Courier Prime', monospace;
-  font-size: 1.5rem;
+.contact__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
   font-weight: 700;
-  color: #1a1a1a;
-  margin: 0 0 0.5rem 0;
+  letter-spacing: var(--track-title);
+  color: var(--ink);
 }
 
-.contact-item a {
-  font-family: 'Courier Prime', monospace;
-  font-size: 1rem;
-  color: #1a1a1a;
-  text-decoration: none;
+.contact__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contact__label {
+  font-family: var(--font-body);
+  font-size: var(--step-micro);
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.contact__item a {
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  letter-spacing: 0.04em;
+  color: var(--ink);
   transition: opacity 0.2s ease;
 }
 
-.contact-item a:hover {
-  opacity: 0.6;
+.contact__item a:hover {
+  opacity: 0.55;
 }
 
-.photo-strip {
-  width: 100%;
-  height: 45vh;
-  overflow: hidden;
+.contact__item .bracket {
+  color: var(--ink-soft);
 }
 
-.photo-strip img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 80%;
+/* Only the contents shrink on small screens. Overriding --stamp-w here would
+   desynchronise the cutout from Home. */
+@media (max-height: 860px) {
+  .contact__links {
+    gap: 0.7rem;
+  }
 }
