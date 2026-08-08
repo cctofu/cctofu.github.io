@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "photos": "node scripts/build-photo-manifest.mjs",
+    "paper": "python3 scripts/build-paper-tile.py",
     "prebuild": "npm run photos",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

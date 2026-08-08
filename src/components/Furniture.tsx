@@ -8,14 +8,12 @@ import './Furniture.css'
 
 type EdgeTextProps = {
   text: string
-  /** 'down' reads top-to-bottom (default), 'up' reads bottom-to-top. */
-  direction?: 'down' | 'up'
 }
 
-/** Rotated line of type down the right margin. */
-export function EdgeText({ text, direction = 'down' }: EdgeTextProps) {
+/** Rotated line of type reading top-to-bottom down the right margin. */
+export function EdgeText({ text }: EdgeTextProps) {
   return (
-    <div className={`edge-text edge-text--${direction}`} aria-hidden="true">
+    <div className="edge-text" aria-hidden="true">
       {text}
     </div>
   )

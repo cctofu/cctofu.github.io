@@ -4,17 +4,13 @@ import { STAMP_PATH } from './stampPath'
 import './Stamp.css'
 
 type StampProps = {
-  /** Image shown inside the stamp. */
-  image?: string
   /**
-   * How the image is framed.
-   *
-   * 'cover'  — the image is scaled to fill the stamp box.
-   * 'window' — the image is scaled to fill the whole viewport, and the stamp
-   *            reveals only the part lying behind it, like a hole cut in a
-   *            sheet of paper laid over a photograph.
+   * Photograph shown through the stamp. It is scaled to cover the whole
+   * viewport, and the stamp reveals only the slice lying behind it — a hole
+   * cut in a sheet of paper laid over a print. Without it the stamp is a
+   * blank sheet and `children` fills it.
    */
-  fit?: 'cover' | 'window'
+  image?: string
   /** Rendered inside the perforated border. */
   children?: ReactNode
   /** Extra class for page-specific styling. */
@@ -28,12 +24,13 @@ type StampProps = {
  * the element and needs no JavaScript measurement. See stampPath.ts for the
  * geometry and why this is a clip-path rather than a CSS mask.
  */
-function Stamp({ image, fit = 'cover', children, className }: StampProps) {
+function Stamp({ image, children, className }: StampProps) {
   // useId can emit colons, which are awkward inside url(#...).
   const clipId = `stamp-${useId().replace(/[^a-zA-Z0-9]/g, '')}`
 
-  const variant = image ? `stamp--${fit === 'window' ? 'window' : 'photo'}` : 'stamp--blank'
-  const classes = ['stamp', variant, className].filter(Boolean).join(' ')
+  const classes = ['stamp', image ? 'stamp--window' : 'stamp--blank', className]
+    .filter(Boolean)
+    .join(' ')
 
   const style = {
     clipPath: `url(#${clipId})`,

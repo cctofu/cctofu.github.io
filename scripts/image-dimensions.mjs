@@ -130,5 +130,3 @@ export function imageDimensions(buffer) {
   }
   return null
 }
-
-export default imageDimensions

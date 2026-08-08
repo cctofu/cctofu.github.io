@@ -41,14 +41,6 @@
   /* clip-path is applied inline by the component, which owns the unique id. */
 }
 
-/* Photo fills the whole box including the padding, so the perforations are
-   punched out of the image itself rather than out of a cream margin. */
-.stamp--photo {
-  background-image: var(--stamp-image);
-  background-size: cover;
-  background-position: center;
-}
-
 /* ---------------------------------------------------------------
    Window variant
    ---------------------------------------------------------------
@@ -74,7 +66,8 @@
 
 .stamp--window {
   /* Aspect ratio of the image in --stamp-image (width / height).
-     home.webp is 2000×1333. Update this if you swap the photograph. */
+     home.webp is 2000×1333. Update this if you swap the photograph, or the
+     window crop drifts out of step with the Contact backdrop. */
   --stamp-image-ar: 1.5004;
 
   background-image: var(--stamp-image);

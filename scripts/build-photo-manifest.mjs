@@ -56,7 +56,7 @@ const output = `/**
  * space before an image loads, which is what keeps layout shift at zero.
  */
 
-export type PhotoDimensions = {
+type PhotoDimensions = {
   width: number
   height: number
 }

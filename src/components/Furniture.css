@@ -20,14 +20,7 @@
   text-transform: uppercase;
   color: var(--ink);
   white-space: nowrap;
-}
-
-.edge-text--down {
   transform: translate(50%, -50%) rotate(90deg);
-}
-
-.edge-text--up {
-  transform: translate(50%, -50%) rotate(-90deg);
 }
 
 /* Two-line label pinned top right, opposite the nav. */

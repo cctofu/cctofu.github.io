@@ -1,5 +1,5 @@
 import Stamp from '../components/Stamp'
-import { EdgeText, PageLabel } from '../components/Furniture'
+import { PageLabel } from '../components/Furniture'
 import './Home.css'
 
 function Home() {
@@ -7,7 +7,7 @@ function Home() {
     <div className="page--fixed home">
       <PageLabel primary="HOME" secondary="2026" />
       <div className="stamp-anchor">
-        <Stamp image="/home.webp" fit="window" />
+        <Stamp image="/home.webp" />
       </div>
 
       <div className="home__caption">
