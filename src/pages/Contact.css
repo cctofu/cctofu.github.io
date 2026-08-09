@@ -55,11 +55,21 @@
 }
 
 .contact__item a {
-  font-family: var(--font-body);
-  font-size: var(--step-body);
-  letter-spacing: 0.04em;
+  font-family: var(--font-accent);
+  /* A hair larger than --step-body. Space Grotesk is narrower than Courier
+     Prime at the same size, so matching the step would make the handles
+     read smaller than the labels above them. */
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   color: var(--ink);
   transition: opacity 0.2s ease;
+}
+
+/* The brackets stay monospace — they are furniture from the Courier voice,
+   and Space Grotesk's are too tight to frame the handle. */
+.contact__item .bracket {
+  font-family: var(--font-body);
 }
 
 .contact__item a:hover {

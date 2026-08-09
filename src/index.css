@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------
    Fonts
    Courier Prime is self-hosted from /public/fonts.
-   Jost (display) is loaded from Google Fonts in index.html.
+   Jost (display) and Space Grotesk (name) load from Google Fonts in index.html.
    --------------------------------------------------------------- */
 
 @font-face {
@@ -54,11 +54,18 @@
   /* Type */
   --font-display: 'Jost', 'Futura', 'Century Gothic', sans-serif;
   --font-body: 'Courier Prime', ui-monospace, monospace;
+  /* The name on Home and the links on Contact — the two places the page
+     speaks in its own voice. Kept separate from --font-display so the small
+     caps furniture can stay on Jost. */
+  --font-accent: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
 
   --step-body: 0.8rem;
   --step-micro: 0.65rem;
 
   --track-display: 0.08em;
+  /* Space Grotesk's caps are already wide and loosely fitted, so this sits
+     just above --track-display rather than well above it. */
+  --track-accent: 0.1em;
   --track-title: 0.02em;
   --track-micro: 0.18em;
 

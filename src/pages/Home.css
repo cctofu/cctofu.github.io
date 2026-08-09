@@ -43,19 +43,23 @@
 }
 
 .home__name {
-  font-family: var(--font-display);
+  font-family: var(--font-accent);
   /* Smaller than the old display step: the stamp owns the centre now, and
-     the name has to fit between its bottom edge and the corner copy. */
-  font-size: clamp(1.4rem, 3.6vw, 2.75rem);
-  font-weight: 700;
-  letter-spacing: var(--track-display);
+     the name has to fit between its bottom edge and the corner copy.
+     Space Grotesk has a tall cap height, so it holds the page at roughly
+     the size Jost did. */
+  font-size: clamp(1.4rem, 3.6vw, 2.8rem);
+  /* 500 rather than 700. The face's character is in its odd curves and flat
+     terminals; bold flattens those into a generic heavy grotesque. */
+  font-weight: 500;
+  letter-spacing: var(--track-accent);
   line-height: 1;
   color: var(--ink);
   white-space: nowrap;
   /* Letter-spacing adds a trailing gap after the final glyph, which makes a
      centred word sit half that gap left of true centre. Cancelling it on the
      right margin puts the letterforms back on the axis. */
-  margin-right: calc(var(--track-display) * -1);
+  margin-right: calc(var(--track-accent) * -1);
 }
 
 .home__role {
@@ -81,5 +85,9 @@
 @media (max-width: 600px) {
   .home__name {
     font-size: clamp(1.2rem, 6.5vw, 2rem);
+    /* Tighter on a narrow screen: the tracking pushes the name into the
+       gutters before the font-size clamp has a chance to help. */
+    letter-spacing: 0.07em;
+    margin-right: -0.07em;
   }
 }
