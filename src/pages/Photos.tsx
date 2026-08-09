@@ -38,24 +38,38 @@ function Photos() {
         </div>
       ) : (
         <div className="photos__grid">
-          {photos.map((photo, index) => (
+          {photos.map((photo, index) => {
+            const described = photo.caption.length
+              ? photo.caption.join(', ')
+              : photo.id.replace(/[-_]/g, ' ')
+            return (
             <button
               key={photo.id}
               className="photos__item"
               onClick={(event) => open(index, event.currentTarget)}
-              aria-label={`Open ${photo.id.replace(/[-_]/g, ' ')}`}
+              aria-label={`Open ${described}`}
             >
               <img
                 src={photo.src}
-                alt={photo.id.replace(/[-_]/g, ' ')}
+                alt={described}
                 width={photo.width}
                 height={photo.height}
                 style={photo.aspect ? { aspectRatio: String(photo.aspect) } : undefined}
                 loading="lazy"
                 decoding="async"
               />
+              {photo.caption.length > 0 ? (
+                <span className="photos__caption">
+                  {photo.caption.map((part, partIndex) => (
+                    <span key={part + partIndex} className="photos__caption-part">
+                      {part}
+                    </span>
+                  ))}
+                </span>
+              ) : null}
             </button>
-          ))}
+            )
+          })}
         </div>
       )}
 

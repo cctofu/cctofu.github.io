@@ -36,6 +36,7 @@
 }
 
 .photos__item {
+  position: relative;
   display: block;
   width: 100%;
   margin: 0 0 0.85rem;
@@ -57,6 +58,45 @@
 .photos__item:hover img {
   opacity: 0.82;
   transform: scale(1.012);
+}
+
+/* ---------------------------------------------------------------
+   Caption — bottom-left, white on a soft scrim so it stays legible
+   over a blown-out sky or a white wall.
+   --------------------------------------------------------------- */
+
+.photos__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.5rem;
+  padding: 2.5rem 0.85rem 0.7rem;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  /* Scrim + text shadow: two layers of insurance against a bright frame. */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+  pointer-events: none;
+}
+
+.photos__caption-part + .photos__caption-part::before {
+  content: '';
+  display: inline-block;
+  width: 0.28rem;
+  height: 0.28rem;
+  margin-right: 0.5rem;
+  vertical-align: 0.12em;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.7;
 }
 
 .photos__empty {
