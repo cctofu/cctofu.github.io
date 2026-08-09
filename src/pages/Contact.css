@@ -24,11 +24,15 @@
    it matches Home exactly; the text inside is sized to fit that box instead. */
 
 .contact__title {
-  font-family: var(--font-display);
+  font-family: var(--font-accent);
   font-size: clamp(1.1rem, 2.4vw, 1.6rem);
-  font-weight: 700;
-  letter-spacing: var(--track-title);
+  /* 500, matching the name on Home. */
+  font-weight: 500;
+  /* Wider than --track-title but short of --track-accent: this is uppercase
+     at a fraction of the name's size, so it needs air, just less of it. */
+  letter-spacing: 0.06em;
   color: var(--ink);
+  margin-right: -0.06em;
 }
 
 .contact__links {
@@ -55,21 +59,11 @@
 }
 
 .contact__item a {
-  font-family: var(--font-accent);
-  /* A hair larger than --step-body. Space Grotesk is narrower than Courier
-     Prime at the same size, so matching the step would make the handles
-     read smaller than the labels above them. */
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-family: var(--font-body);
+  font-size: var(--step-body);
+  letter-spacing: 0.04em;
   color: var(--ink);
   transition: opacity 0.2s ease;
-}
-
-/* The brackets stay monospace — they are furniture from the Courier voice,
-   and Space Grotesk's are too tight to frame the handle. */
-.contact__item .bracket {
-  font-family: var(--font-body);
 }
 
 .contact__item a:hover {

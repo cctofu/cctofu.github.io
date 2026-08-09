@@ -54,9 +54,9 @@
   /* Type */
   --font-display: 'Jost', 'Futura', 'Century Gothic', sans-serif;
   --font-body: 'Courier Prime', ui-monospace, monospace;
-  /* The name on Home and the links on Contact — the two places the page
-     speaks in its own voice. Kept separate from --font-display so the small
-     caps furniture can stay on Jost. */
+  /* The name on Home and the title on Contact — the two headline moments.
+     Kept separate from --font-display so the small caps furniture can stay
+     on Jost. */
   --font-accent: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
 
   --step-body: 0.8rem;
