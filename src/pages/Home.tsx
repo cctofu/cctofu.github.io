@@ -12,7 +12,7 @@ function Home() {
 
       <div className="home__caption">
         <h1 className="home__name">CALVIN CHANG</h1>
-        <p className="home__role">Photography &amp; Software</p>
+        <p className="home__role">My Website</p>
       </div>
     </div>
   )

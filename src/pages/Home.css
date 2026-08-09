@@ -3,6 +3,24 @@
 }
 
 /* ---------------------------------------------------------------
+   Stamp shadow.
+
+   The stamp's outline is an SVG clip-path, so a box-shadow on the stamp
+   itself would be clipped away along with everything else outside the
+   perforations. drop-shadow filters the already-clipped result instead,
+   so the shadow traces the bitten edge. It goes on the wrapper because a
+   filter on the clipped element would be applied before the clip.
+
+   Two layers: a tight one for the contact edge, a soft one for the lift.
+   Tinted towards the ink rather than pure black so it sits on the cream.
+   --------------------------------------------------------------- */
+
+.home .stamp-anchor {
+  filter: drop-shadow(0 2px 2px rgba(26, 26, 26, 0.5))
+    drop-shadow(0 0.4rem 2.2rem rgba(26, 26, 26, 0.5));
+}
+
+/* ---------------------------------------------------------------
    Caption beneath the stamp.
 
    Positioned off the same 50% axis the stamp is centred on, then
