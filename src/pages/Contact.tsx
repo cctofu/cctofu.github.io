@@ -4,7 +4,7 @@ import './Contact.css'
 
 const LINKS = [
   { label: 'Linkedin', handle: '@calvinchang216', href: 'https://linkedin.com/in/calvinchang216' },
-  { label: 'Github', handle: '@cctofu', href: 'https://github.com/cctofu' },
+  { label: 'Github', handle: '@changcalvin', href: 'https://github.com/changcalvin' },
 ]
 
 function Contact() {
